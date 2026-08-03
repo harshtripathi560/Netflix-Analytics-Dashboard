@@ -131,9 +131,7 @@ Netflix experienced significant content growth between 2017 and 2020.
 ![Analytics Dashboard](screenshots/dashboard.png)
 
 ### Release Trend & Insights
-
-(Add Screenshot Here)
-![Release Trend](screenshots/Insights.png)
+![Release Trend](screenshots/Insight.png)
 ---
 
 ## 📂 Project Structure
