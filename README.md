@@ -1,65 +1,161 @@
 # Netflix Analytics Dashboard
 
-A professional Netflix Data Analytics Dashboard built using Python, Flask, Pandas, Plotly, HTML, CSS, and JavaScript.
+A premium Netflix Analytics Dashboard built using Python, Flask, Pandas and Plotly to analyze Netflix content trends, genres, countries, ratings and release patterns.
+
+---
 
 ## Project Overview
 
-This dashboard analyzes Netflix content data and provides insights into:
+This project performs Exploratory Data Analysis (EDA) on Netflix's content dataset and presents insights through an interactive web dashboard.
+
+The dashboard helps users understand:
 
 - Movies vs TV Shows distribution
-- Top Genres
-- Top Countries
-- Rating Distribution
-- Release Year Trends
-- Key Findings and KPIs
+- Top Genres on Netflix
+- Country-wise content contribution
+- Rating distribution
+- Release year trends
+- Key business insights
+
+---
 
 ## Features
 
-- Interactive Plotly Charts
-- Responsive UI
+- Interactive Plotly Visualizations
+- Modern Netflix-inspired UI
 - KPI Cards
 - Animated Counters
 - Scroll Reveal Animations
-- Professional Dashboard Layout
-- Flask Backend
+- Quick Insights Panel
+- Responsive Design
+- Flask Backend Integration
 
-## Technologies Used
+---
 
-- Python
-- Pandas
-- Flask
-- Plotly
+## Tech Stack
+
+### Frontend
 - HTML
 - CSS
 - JavaScript
 
+### Backend
+- Python
+- Flask
+
+### Data Analysis
+- Pandas
+- NumPy
+
+### Visualization
+- Plotly
+
+---
+
 ## Dataset
 
-Netflix Titles Dataset from Kaggle.
+Netflix Movies and TV Shows Dataset from Kaggle.
 
-## Key Insights
+Dataset contains:
 
-- Movies dominate the Netflix catalog
-- United States contributes the most content
-- International Movies are the most common genre
-- TV-MA is the most frequent rating
+- 8,800+ Titles
+- Multiple Countries
+- Multiple Genres
+- Ratings Information
+- Release Years
+
+---
+
+## Dashboard Insights
+
+### Content Distribution
+Analyze the proportion of Movies and TV Shows.
+
+### Top Genres
+Discover the most popular genres available on Netflix.
+
+### Country Analysis
+Identify countries contributing the most content.
+
+### Rating Distribution
+Understand audience-targeted content categories.
+
+### Release Trends
+Track content growth over time.
+
+---
 
 ## Project Structure
 
 ```text
-NetflixDataAnalysis/
+NetflixAnalyticsDashboard/
 │
 ├── app.py
 ├── dashboard_data.py
 ├── dataset/
-├── static/
-│   ├── css/
-│   └── images/
+│   ├── netflix_titles.csv
+│   └── netflix_cleaned.csv
+│
 ├── templates/
 │   └── index.html
+│
+├── static/
+│   └── css/
+│       └── style.css
+│
+├── screenshots/
+│
 └── README.md
 ```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/harshtripathi560/Netflix-Analytics-Dashboard.git
+```
+
+Move into project folder:
+
+```bash
+cd Netflix-Analytics-Dashboard
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run application:
+
+```bash
+python app.py
+```
+
+Open:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## Future Improvements
+
+- Search & Filter Functionality
+- User Authentication
+- Netflix Recommendation Engine
+- Machine Learning Insights
+- Advanced Dashboard Analytics
+
+---
 
 ## Author
 
 Harsh Tripathi
+
+Data Analytics | Data Science | Python | Flask | SQL
