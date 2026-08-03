@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Netflix Analytics Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div id="intro-screen">
+
+        <div class="intro-logo">
+             NETFLIX
+        </div>
+
+    </div>
+
+    <div class="navbar">
+
+        <div class="logo">
+            NETFLIX
+        </div>
+
+        <div class="nav-links">
+            <a href="#">Overview</a>
+            <a href="#">Content</a>
+            <a href="#">Genres</a>
+            <a href="#">Countries</a>
+        </div>
+
+    </div>
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+            Data-Driven Insights Into
+            Netflix Global Content Library
+            </h1>
+
+            <p>
+                Explore content trends, genre popularity, country-wise distribution, ratings, and release patterns across Netflix's global catalog.
+            </p>
+
+            <a href="#dashboard-start">
+
+                <button>
+                     Explore Dashboard
+                </button>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="overview-section">
+
+    <div class="overview-card">
+
+        <h3>📊 Dataset Size</h3>
+
+        <p>{{ total_titles }}+</p>
+
+    </div>
+
+    <div class="overview-card">
+
+        <h3>🌎 Countries</h3>
+
+        <p>{{ countries_count }}</p>
+
+    </div>
+
+    <div class="overview-card">
+
+        <h3>🎬 Genres</h3>
+
+        <p>{{ genres_count }}</p>
+
+    </div>
+
+    <div class="overview-card">
+
+        <h3>📅 Years Covered</h3>
+
+        <p>{{ min_year }} - {{ max_year }}</p>
+
+    </div>
+
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="findings-section">
+
+    <h2>Key Findings</h2>
+
+    <div class="findings-grid">
+
+        <div class="finding-card reveal">
+
+            <h3>🎬 Content Dominance</h3>
+
+            <p>
+                Movies account for
+                <strong>{{ movie_percentage }}%</strong>
+                of Netflix content.
+            </p>
+
+        </div>
+
+        <div class="finding-card reveal">
+
+            <h3>🌎 Global Leader</h3>
+
+            <p>
+                <strong>{{ top_country }}</strong>
+                contributes the highest amount
+                of Netflix content.
+            </p>
+
+        </div>
+
+        <div class="finding-card reveal">
+
+            <h3>⭐ Rating Trend</h3>
+
+            <p>
+                Most Netflix content is rated
+                <strong>{{ most_common_rating }}</strong>
+            </p>
+
+        </div>
+
+        <div class="finding-card reveal">
+
+            <h3>📈 Peak Year</h3>
+
+            <p>
+                Netflix content peaked in
+                <strong>{{ peak_year }}</strong>
+                with
+                <strong>{{ peak_year_count }}</strong>
+                titles.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <div class="section-divider"></div>
+
+
+    <section class="cards" id="dashboard-start">
+
+        <div class="card reveal">
+            <h3>Total Titles</h3>
+            <p class="counter" data-target="{{ total_titles }}">0</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>Movies</h3>
+            <p class="counter" data-target="{{ movies_count }}">0</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>TV Shows</h3>
+            <p class="counter" data-target="{{ tv_shows_count }}">0</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>Top Country</h3>
+            <p>{{ top_country }}</p>
+        </div>
+
+    </section>
+
+    <section class="chart-section">
+
+        <div class="chart-card reveal">
+
+            <h2>Content Distribution</h2>
+
+            {{ chart_html | safe }}
+
+        </div>
+
+        <div class="chart-card reveal">
+
+            <h2>Top Genres</h2>
+
+            {{ genre_chart_html | safe }}
+
+        </div>
+
+        <div class="chart-card reveal">
+
+            <h2>Top Countries</h2>
+
+            {{ country_chart_html | safe }}
+
+        </div>
+
+        <div class="chart-card reveal">
+
+            <h2>Rating Distribution</h2>
+
+            {{ rating_chart_html | safe }}
+
+        </div>
+
+        <div class="bottom-row">
+
+            <div class="chart-card release-card reveal">
+
+                <h2>Release Year Trend</h2>
+
+                {{ release_chart_html | safe }}
+
+            </div>
+
+            <div class="insight-card reveal">
+
+                <h2>Quick Insights</h2>
+
+                <ul>
+
+                    <li>
+                        <span class="insight-icon">📊</span>
+                        <div>
+                            <small>Total Titles</small>
+                            <strong>{{ total_titles }}</strong>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="insight-icon">🎬</span>
+                        <div>
+                            <small>Top Genre</small>
+                            <strong>{{ most_common_genre }}</strong>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="insight-icon">🌎</span>
+                        <div>
+                            <small>Top Country</small>
+                            <strong>{{ top_country }}</strong>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="insight-icon">🍿</span>
+                        <div>
+                            <small>Movies Share</small>
+                            <strong>{{ movie_percentage }}%</strong>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="insight-icon">📺</span>
+                        <div>
+                            <small>TV Shows Share</small>
+                            <strong>{{ tv_percentage }}%</strong>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+
+    <div class="footer-content">
+
+        <h2>Netflix Analytics Dashboard</h2>
+
+        <p>
+            Data-driven insights into Netflix's global content library.
+        </p>
+
+        <div class="footer-grid">
+
+            <div class="footer-box">
+
+                <h3>Dataset</h3>
+
+                <p>
+                    Netflix Titles Dataset (Kaggle)
+                </p>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>Tools Used</h3>
+
+                <p>
+                    Python • Pandas • Plotly • Flask
+                </p>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>Features</h3>
+
+                <p>
+                    EDA • KPI Analytics • Data Visualization
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            Created by <strong>Harsh Tripathi</strong>
+
+        </div>
+
+    </div>
+
+</footer>
+
+    <script>
+
+    const counters =
+    document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+
+        const target =
+        +counter.getAttribute("data-target");
+
+        let count = 0;
+
+        const speed = target / 100;
+
+        const updateCounter = () => {
+
+            if(count < target){
+
+                count += speed;
+
+                counter.innerText =
+                Math.floor(count);
+
+                requestAnimationFrame(
+                    updateCounter
+                );
+            }
+            else{
+
+                counter.innerText =
+                target;
+            }
+        };
+
+        updateCounter();
+    });
+
+    </script>
+
+    <script>
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+function revealElements(){
+
+    reveals.forEach(
+        reveal => {
+
+            const top =
+            reveal.getBoundingClientRect()
+            .top;
+
+            const windowHeight =
+            window.innerHeight;
+
+            if(
+                top <
+                windowHeight - 100
+            ){
+
+                reveal.classList.add(
+                    "active"
+                );
+            }
+        }
+    );
+}
+
+        window.addEventListener(
+            "scroll",
+            revealElements
+        );
+
+    revealElements();
+
+</script>
+
+    <script>
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(() => {
+
+            document
+            .getElementById(
+                "intro-screen"
+            )
+            .classList.add(
+                "hide-intro"
+            );
+
+        }, 2500);
+
+    }
+);
+
+</script>
+</body>
+
+</html>
